@@ -1,19 +1,19 @@
-import cypressXpath from 'cypress-xpath'
-import "cypress-localstorage-commands";
+import cypressXpath from 'cypress-xpath';
+import 'cypress-localstorage-commands';
 
 // Sign in
-  describe('template spec', () => {
-    before(() => {
-      cy.clearLocalStorageSnapshot();
-    });
+describe('template spec', () => {
+  before(() => {
+    cy.clearLocalStorageSnapshot();
+  });
   
-    beforeEach(() => {
-      cy.restoreLocalStorage();
-    });
+  beforeEach(() => {
+    cy.restoreLocalStorage();
+  });
   
-    afterEach(() => {
-      cy.saveLocalStorage();
-    });
+  afterEach(() => {
+    cy.saveLocalStorage();
+  });
   
   it('Login', () => {
 
@@ -46,10 +46,10 @@ import "cypress-localstorage-commands";
       
       cy.wait(2000);
     });
-  })
+  });
 
   it('successfully loads', () => {
-    cy.visit('https://app.develop.cyber-pass.eu/products/list')
+    cy.visit('https://app.develop.cyber-pass.eu/products/list');
     
-  })
-})
+  });
+});
