@@ -1,9 +1,21 @@
 import cypressXpath from 'cypress-xpath'
-
+import "cypress-localstorage-commands";
 
 // Sign in
   describe('template spec', () => {
-  it('passes', () => {
+    before(() => {
+      cy.clearLocalStorageSnapshot();
+    });
+  
+    beforeEach(() => {
+      cy.restoreLocalStorage();
+    });
+  
+    afterEach(() => {
+      cy.saveLocalStorage();
+    });
+  
+  it('Login', () => {
 
     const email = 'anything@dk5v08sn0rpt.mailisk.net';
     cy.visit('https://app.develop.cyber-pass.eu/');
@@ -31,23 +43,13 @@ import cypressXpath from 'cypress-xpath'
 
       cy.get('.ant-form-item-control-input-content').find('.ant-input').eq(1).type(code);
       cy.get('.ant-btn-primary').click();
+      
+      cy.wait(2000);
     });
-
   })
-})
 
-// Sidebar happy flow
-describe('CyberPass', () => {
- 
   it('successfully loads', () => {
-  
-
-    // cy.get('[data-menu-id="rc-menu-uuid-45882-4-/dashboard"] > .ant-menu-title-content').click()
-//     // cy.get('[data-menu-id="rc-menu-uuid-45882-4-/products/list"] > .ant-menu-title-content > :nth-child(2)').click()
-//     // cy.get('[data-menu-id="rc-menu-uuid-45882-4-/products/list"] > .ant-menu-title-content > :nth-child(2)').click()
-//     // cy.get('[data-menu-id="rc-menu-uuid-45882-4-/opportunities"] > .ant-menu-title-content > :nth-child(2)').click()
-//     // cy.get('[data-menu-id="rc-menu-uuid-45882-4-/opportunities"] > .ant-menu-title-content > :nth-child(2)').click()
-//     // cy.get('[data-menu-id="rc-menu-uuid-45882-4-/dashboard"] > .ant-menu-title-content').click()
-   
+    cy.visit('https://app.develop.cyber-pass.eu/products/list');
+    
   })
 })

@@ -14,6 +14,7 @@
   },
   "devDependencies": {
     "@cypress/xpath": "^2.0.3",
+    "cypress-localstorage-commands": "^2.2.3",
     "cypress-xpath": "^2.0.1"
   }
 }
