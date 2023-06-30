@@ -49,7 +49,7 @@ import "cypress-localstorage-commands";
   })
 
   it('successfully loads', () => {
-    cy.visit('https://app.develop.cyber-pass.eu/products/list');
+    cy.visit('https://app.develop.cyber-pass.eu/products/list')
     
   })
 })
