@@ -10,11 +10,11 @@ describe('template spec', () => {
   beforeEach(() => {
     cy.restoreLocalStorage();
   });
-  
+
   afterEach(() => {
     cy.saveLocalStorage();
   });
-  
+
   it('Login', () => {
 
     const email = 'anything@dk5v08sn0rpt.mailisk.net';
