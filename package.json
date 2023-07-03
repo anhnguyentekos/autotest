@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "@cypress/xpath": "^2.0.3",
+    "@testing-library/cypress": "^9.0.0",
     "cypress-localstorage-commands": "^2.2.3",
     "cypress-xpath": "^2.0.1",
     "eslint": "^8.43.0",
