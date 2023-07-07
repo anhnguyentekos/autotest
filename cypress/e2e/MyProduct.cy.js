@@ -66,14 +66,12 @@ describe('saveLocalStorage', () => {
     cy.get('.ant-select-item-option-content').eq(0).click();
     cy.get('.ant-select-item-option-content').eq(1).click();
 
-    // cy.get('.ant-drawer-body').click({force: true});
     
     cy.get('.ant-select-selection-placeholder').contains('Search Functional').click({force: true});
     cy.wait(1000);
     cy.get('.ant-select-item-option-content').eq(10).click({force: true});
     cy.get('.ant-select-item-option-content').eq(11).click({force: true});
 
-    // cy.get('.ant-drawer-body').click({force: true});
 
     cy.get('.ant-select-selection-placeholder').contains('Search Technological').click({force: true});
     cy.wait(1000);
@@ -90,15 +88,27 @@ describe('saveLocalStorage', () => {
 //edit product
     cy.get('.anticon-edit').eq(0).click({force: true});
     
-    cy.get('#add_product_name').type('Smart House 1');
-    cy.get('#add_product_productUniqueId').type('123');
+    cy.get('#add_product_name').type('123 Smart House');
+    cy.get('#add_product_productUniqueId').type('456');
 
     cy.get('#add_product_sectoral').click({force: true});
     cy.wait(1000);
-    cy.get('.ant-select-item-option-content').eq(2).click({force: true});
-    cy.get('.ant-select-item-option-content').eq(12).click({force: true} );
 
-    cy.get('#add_product_description').type('Smart House 123');
+    cy.get('.ant-select-item-option-content').eq(4).click({force: true});
+    cy.get('.ant-select-item-option-content').eq(5).click({force: true});
+    
+    cy.get('#add_product_functional').click({force: true});
+    cy.wait(1000);
+    cy.get('.ant-select-item-option-content').eq(12).click({force: true});
+    cy.get('.ant-select-item-option-content').eq(13).click({force: true});
+
+   
+
+    cy.get('#add_product_technological').click({force: true});
+    cy.wait(1000);
+    cy.get('.ant-select-item-option-content').eq(24).click({force: true});
+    cy.get('.ant-select-item-option-content').eq(25).click({force: true});
+
 
     cy.get('.ant-form-item-control-input-content').contains('Save').click({force: true});
 // // end edit product
