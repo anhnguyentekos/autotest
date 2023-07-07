@@ -43,10 +43,11 @@ describe('saveLocalStorage', () => {
       cy.get('.ant-form-item-control-input-content').find('.ant-input').eq(1).type(code);
       cy.get('.ant-btn-primary').click();
       cy.wait(2000);
+  
 
     });
   });
-
+ 
   // Dashboard
   // Add new product
   it('Click on Add Products button', () => {
@@ -83,6 +84,7 @@ describe('saveLocalStorage', () => {
 
     cy.get('.ant-form-item-control-input-content').contains('Add').click({force: true});
 
+  
 //end : add product info
 
 //edit product
@@ -102,7 +104,6 @@ describe('saveLocalStorage', () => {
     cy.get('.ant-select-item-option-content').eq(12).click({force: true});
     cy.get('.ant-select-item-option-content').eq(13).click({force: true});
 
-   
 
     cy.get('#add_product_technological').click({force: true});
     cy.wait(1000);
@@ -111,11 +112,20 @@ describe('saveLocalStorage', () => {
 
 
     cy.get('.ant-form-item-control-input-content').contains('Save').click({force: true});
-// // end edit product
-//     cy.get('.anticon-delete').eq(1).click({force: true}); //delete product
-//     cy.get('.ant-btn-dangerous').click({force: true});
+    cy.wait(3000);
+
+// end edit product
+    cy.get('.ant-btn-dangerous').click({force: true}); //delete product
+    cy.get('.ant-modal-footer > .ant-btn-primary').contains('Delete').click({force: true});
     
   });
+// Filter
+  it('Click on Filter icon', () => {
+    cy.visit('https://app.develop.cyber-pass.eu/');
+    cy.get('.').click()
+    cy.wait(2000);
+  });
+
 
 
 
