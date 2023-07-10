@@ -23,7 +23,7 @@ describe('saveLocalStorage', () => {
     cy.get('.ant-input').type(email);
     cy.get('.ant-btn-primary').click();
 
-    cy.wait(10000);
+    cy.wait(7000);
 
     cy.request({
       method: 'GET',
