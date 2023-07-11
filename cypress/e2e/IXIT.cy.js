@@ -64,13 +64,34 @@ it('Access to IXIT', () => {
     cy.get('.ant-btn-primary').contains('Add entry').click();
     
     cy.get('#form_Description > .authmech-details-text-def > .ant-input').type('Lorem ipsum dolor sit amet.')
+    cy.get('.authmech-details-text-def').eq(1).type('Lorem ipsum dolor sit amet.')
+    cy.get('.authmech-details-text-def').eq(2).type('Lorem ipsum dolor sit amet.')
+    cy.get('.authmech-details-text-def').eq(3).type('Lorem ipsu dolor sit amet.')
+    cy.get('.authmech-details-text-def').eq(4).type('Lorem ipsum dolor sit amet.')
+    cy.get('.authmech-details-text-def').eq(5).type('Lorem ipsum dolor sit amet.')
+   
+    cy.get('.authmech-details-row4 > .ant-btn').contains('Save').click();
+   // IXIT-2
     
-    cy.get('#form_Authenticator\Factor > .authmech-details-text-def > .ant-input').type('Lorem ipsum dolor sit amet.')
-    // cy.get('#form_Password\ Generation\ Mechanism > .authmech-details-text-def > .ant-input').type('Lorem ipsum dolor sit amet.')
-    // cy.get('#form_Security\ Guarantees > .authmech-details-text-def > .ant-input').type('Lorem ipsum dolor sit amet.')
-    // cy.get('#form_Cryptographic\ Details > .authmech-details-text-def > .ant-input').type('Lorem ipsum dolor sit amet.')
-    // cy.get('#form_Brute\ Force\ Prevention > .authmech-details-text-def > .ant-input').type('Lorem ipsum dolor sit amet.')
-    // cy.get('.authmech-details-row4 > .ant-btn').contains('Save').click();
+    cy.get('.anticon-right').contains('>').click();
+    cy.get('.actions > .ant-btn').contains('Edit').click()
+
+    cy.get('.authmech-details-text-def').eq(0).type('Lorem ipsum dolor sit amet.')
+    cy.get('.authmech-details-text-def').eq(1).type('Lorem ipsum dolor sit amet.')
+    cy.get('.authmech-details-text-def').eq(2).type('Lorem ipsum dolor sit amet.')
+    cy.get('.authmech-details-text-def').eq(3).type('Lorem ipsu dolor sit amet.')
+    cy.get('.authmech-details-text-def').eq(4).type('Lorem ipsum dolor sit amet.')
+    cy.get('.authmech-details-text-def').eq(5).type('Lorem ipsum dolor sit amet.')
+    cy.get('.authmech-details-text-def').eq(6).type('Lorem ipsum dolor sit amet.')
+    cy.get('.authmech-details-text-def').eq(7).type('Lorem ipsum dolor sit amet.')
+    cy.get('.authmech-details-text-def').eq(8).type('Lorem ipsum dolor sit amet.')
+    cy.get('.authmech-details-text-def').eq(9).type('Lorem ipsum dolor sit amet.')
+    cy.get('.authmech-details-text-def').eq(10).type('Lorem ipsum dolor sit amet.')
+    cy.get('.authmech-details-text-def').eq(11).type('Lorem ipsum dolor sit amet.')
+    cy.get('.authmech-details-text-def').eq(12).type('Lorem ipsum dolor sit amet.')
+   
+    cy.get('.authmech-details-row4 > .ant-btn').contains('Save').click();
+
 });
 
 });
