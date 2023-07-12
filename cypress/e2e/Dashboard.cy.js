@@ -52,57 +52,49 @@ describe('saveLocalStorage', () => {
   // Click on Go to profile button
   it('Click on Go to profile button ', () => {
     cy.visit('https://app.develop.cyber-pass.eu/');
-    cy.get('.ant-card-extra').contains('Go to Profile').click()
-    cy.wait(3000);  
+    cy.get('.ant-card-extra').contains('Go To Profile').click()
   });
 
   // Click on Launch Products button
   it('Click on Launch Products button ', () => {
     cy.visit('https://app.develop.cyber-pass.eu/');
     cy.get('.ant-btn-primary').contains('Launch Products').click()
-    cy.wait(3000);  
-   
   });
 
   // Click on Launch Opportunities button
   it('Click on Launch Opportunities button ', () => {
     cy.visit('https://app.develop.cyber-pass.eu/');
     cy.get('.ant-btn-primary').contains('Launch Opportunities').click()
-    cy.wait(3000);  
   });
 
   // Click on Launch Knowledge-Base button
   it('Click on Launch Knowledge-Base button ', () => {
     cy.visit('https://app.develop.cyber-pass.eu/');
     cy.get('.ant-btn-primary').contains('Launch Knowledge-Base').click()
-    cy.wait(3000);  
   });
 
   // Click on Created Opportunities button
   it('Click on Created Opportunities button ', () => {
     cy.visit('https://app.develop.cyber-pass.eu/');
     cy.get('.stats-section-title').contains('Created Opportunities').click()
-    cy.wait(5000);  
   });
 
   // Click on Your Products button
   it('Click on Your Products button ', () => {
     cy.visit('https://app.develop.cyber-pass.eu/');
     cy.get('.stats-section-title').contains('Your Products').click()
-    cy.wait(5000);  
   });
 
   // Click on Your Certified Products button
   it('Click on Your Certified Products button ', () => {
     cy.visit('https://app.develop.cyber-pass.eu/');
-    cy.get('.stats-section-title').contains('Your Certified Products').click()
-    cy.wait(5000);  
+    cy.get('.stats-section-title').contains('Your Certified Products').click() 
   });
   // Click on Received Invitations button
   it('Click on Received Invitations button ', () => {
     cy.visit('https://app.develop.cyber-pass.eu/');
-    cy.get('.stats-section-container').contains('Received Invitations').click()
-    cy.wait(5000);  
+    cy.wait(2000);  
+    cy.get('.stats-section-title').contains('Received Invitations').click()
   });
 });
 
