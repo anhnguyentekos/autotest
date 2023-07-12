@@ -53,14 +53,14 @@ describe('saveLocalStorage', () => {
   it('Click on Go to profile button ', () => {
     cy.visit('https://app.develop.cyber-pass.eu/');
     cy.get('.ant-card-extra').contains('Go to Profile').click()
-    cy.wait(2000);  
+    cy.wait(3000);  
   });
 
   // Click on Launch Products button
   it('Click on Launch Products button ', () => {
     cy.visit('https://app.develop.cyber-pass.eu/');
     cy.get('.ant-btn-primary').contains('Launch Products').click()
-    cy.wait(2000);  
+    cy.wait(3000);  
    
   });
 
@@ -68,14 +68,14 @@ describe('saveLocalStorage', () => {
   it('Click on Launch Opportunities button ', () => {
     cy.visit('https://app.develop.cyber-pass.eu/');
     cy.get('.ant-btn-primary').contains('Launch Opportunities').click()
-    cy.wait(2000);  
+    cy.wait(3000);  
   });
 
   // Click on Launch Knowledge-Base button
   it('Click on Launch Knowledge-Base button ', () => {
     cy.visit('https://app.develop.cyber-pass.eu/');
     cy.get('.ant-btn-primary').contains('Launch Knowledge-Base').click()
-    cy.wait(2000);  
+    cy.wait(3000);  
   });
 
   // Click on Created Opportunities button
