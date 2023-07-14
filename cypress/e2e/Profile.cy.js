@@ -19,10 +19,10 @@ describe('saveLocalStorage', () => {
 
     const email = 'anything@dk5v08sn0rpt.mailisk.net';
     cy.visit('https://app.develop.cyber-pass.eu/');
-
+    // container-0-4-1 container-d13-0-4-30 container_rightCenter-0-4-10 container_rightCenter-d21-0-4-38 container_isShown-0-4-2
     cy.get('.ant-input').type(email);
     cy.get('.ant-btn-primary').click();
-
+    
     cy.wait(7000);
 
     cy.request({
@@ -147,9 +147,29 @@ describe('saveLocalStorage', () => {
   // Edit Company Documents
   it('Edit User Detail', () => {
     cy.visit('https://app.develop.cyber-pass.eu/profile')
+    
     cy.get('.anticon-edit').eq(2).click()
-    cy.get('.ant-upload-drag-container').eq(0).attachFile('Company slide.jpg','connected.png','Company logo.jpg');
-    cy.get('.ant-upload-drag-container').eq(1).attachFile('Company slide.jpg','connected.png','Company logo.jpg');
+    cy.get('.ant-upload-drag-container').eq(0).attachFile(['connected.png','Company slide.jpg','th.jpg'],{subjectType:'drag-n-drop'});
+    cy.get('.ant-upload-drag-container').eq(1).attachFile(['th (1).jpg','th (2).jpg','th (3).jpg'],{subjectType:'drag-n-drop'});
+    cy.wait(3000);
+
+    // cy.get('.ant-space > :nth-child(1) > .ant-btn').click();
+    
+
+    // cy.get('.anticon-edit').eq(2).click()
+    // cy.wait(3000);
+
+    // cy.get('.anticon-delete').eq(0).click();
+    // cy.wait(3000);
+
+    // cy.get('.ant-btn-dangerous').contains('Remove').click();
+    // cy.wait(3000);
+
+    // cy.get('.ant-btn-default').contains('Reset').click();
+    // cy.wait(3000);
+
+    // cy.get('.ant-btn-default').contains('Cancel').click();
+
   });
   
 });
