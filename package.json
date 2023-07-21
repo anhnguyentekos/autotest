@@ -20,7 +20,7 @@
   "devDependencies": {
     "@cypress/xpath": "^2.0.3",
     "@testing-library/cypress": "^9.0.0",
-    "cypress": "^12.16.0",
+    "cypress": "^12.17.1",
     "cypress-file-upload": "^5.0.8",
     "cypress-localstorage-commands": "^2.2.3",
     "cypress-xpath": "^2.0.1",
