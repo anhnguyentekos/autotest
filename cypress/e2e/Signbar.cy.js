@@ -102,6 +102,7 @@ describe('saveLocalStorage', () => {
     cy.visit('https://app.develop.cyber-pass.eu/');
     cy.get('.anticon-book').click({force: true})
     cy.wait(2000);
+    
   });
 
   // Click on Profile
@@ -130,5 +131,11 @@ describe('saveLocalStorage', () => {
     cy.get('.not-collapse-button').click()
     cy.wait(2000);
   });
-    
+     // Log out
+  it('Check Log out and keep remain in log out stage', () => {
+    cy.visit('https://app.develop.cyber-pass.eu/');
+    cy.get('.anticon-export').click()
+    cy.wait(2000);
+    cy.go('back')
+  });
 });

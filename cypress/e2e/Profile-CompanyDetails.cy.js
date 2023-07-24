@@ -19,7 +19,6 @@ describe('saveLocalStorage', () => {
 
     const email = 'anything@dk5v08sn0rpt.mailisk.net';
     cy.visit('https://app.develop.cyber-pass.eu/');
-    // container-0-4-1 container-d13-0-4-30 container_rightCenter-0-4-10 container_rightCenter-d21-0-4-38 container_isShown-0-4-2
     cy.get('.ant-input').type(email);
     cy.get('.ant-btn-primary').click();
     

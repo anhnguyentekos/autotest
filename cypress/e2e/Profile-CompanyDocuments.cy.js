@@ -20,7 +20,6 @@ describe('saveLocalStorage', () => {
 
     const email = 'anything@dk5v08sn0rpt.mailisk.net';
     cy.visit('https://app.develop.cyber-pass.eu/');
-    // container-0-4-1 container-d13-0-4-30 container_rightCenter-0-4-10 container_rightCenter-d21-0-4-38 container_isShown-0-4-2
     cy.get('.ant-input').type(email);
     cy.get('.ant-btn-primary').click();
     
@@ -53,18 +52,21 @@ it('Edit Company Documents', () => {
     cy.visit('https://app.develop.cyber-pass.eu/profile')
     cy.get('.anticon-edit').eq(1).click()
 
-    // cy.get('.ant-upload-drag-container').eq(0).attachFile(['connected.png','Company slide.jpg','th.jpg'],{subjectType:'drag-n-drop', force: true, allowEmpty: true});
-    // cy.get('.ant-upload-drag-container').eq(1).attachFile(['th (1).jpg','th (2).jpg','th (3).jpg'],{subjectType:'drag-n-drop', force: true, allowEmpty: true});
-    // cy.get('.ant-btn-default').contains('Reset').click();
-// Re upload
+    cy.get('.ant-upload-drag-container').eq(0).selectFile(['connected.png','Company slide.jpg'],{action:'drag-drop', force: true, allowEmpty: true});
+    cy.get('.ant-upload-drag-container').eq(1).selectFile(['th (1).jpg','th (2).jpg','th (3).jpg','th.jpg'],{action:'drag-drop', force: true, allowEmpty: true});
     
-    // cy.get('.ant-upload-drag-container').eq(0).attachFile(['connected.png','Company slide.jpg','th.jpg'],{subjectType:'drag-n-drop', force: true, allowEmpty: true});
-    // cy.get('.ant-upload-drag-container').eq(1).attachFile(['th (1).jpg','th (2).jpg','th.jpg'],{subjectType:'drag-n-drop', force: true, allowEmpty: true});
+
+//     cy.get('.ant-btn-default').contains('Reset').click();
+// // Re upload
+    
+//     cy.get('.ant-upload-drag-container').eq(0).selectFile(['connected.png','Company slide.jpg','th.jpg'],{action:'drag-drop', force: true, allowEmpty: true});
+//     cy.get('.ant-upload-drag-container').eq(1).selectFile(['th (1).jpg','th (2).jpg','th (3).jpg'],{action:'drag-drop', force: true, allowEmpty: true});
     cy.wait(3000);
     cy.get('.ant-btn-primary').contains('Save').click();
+    
     });
   
-    // Clear data
+//     // Clear data
 // it('clear data', () => {
 //     cy.visit('https://app.develop.cyber-pass.eu/profile')
 //     cy.get('.anticon-edit').eq(1).click()
@@ -78,7 +80,7 @@ it('Edit Company Documents', () => {
 //     // brochure 
 //     cy.get('.ant-upload-list-item-card-actions-btn').eq(1).click({force: true})
 //     cy.get('.ant-btn-dangerous').contains('Remove').click(({force: true}));
-//     cy.get('.ant-upload-list-item-card-actions-btn').eq(2).click()
+//     cy.get('.ant-upload-list-item-card-actions-btn').eq(2).click({force: true})
 //     cy.get('.ant-btn-dangerous').contains('Remove').click({force: true});
 //     cy.get('.ant-upload-list-item-card-actions-btn').eq(2).click(({force: true}))
 //     cy.get('.ant-btn-dangerous').contains('Remove').click({force: true});
