@@ -18,7 +18,7 @@ describe('saveLocalStorage', () => {
 
   it('Login', () => {
 
-    const email = 'anything@dk5v08sn0rpt.mailisk.net';
+    const email = 'anything@3ae7depk6evl.mailisk.net';
     cy.visit('https://app.develop.cyber-pass.eu/');
     cy.get('.ant-input').type(email);
     cy.get('.ant-btn-primary').click();
@@ -27,9 +27,9 @@ describe('saveLocalStorage', () => {
 
     cy.request({
       method: 'GET',
-      url: 'https://api.mailisk.com/api/emails/dk5v08sn0rpt/inbox',
+      url: 'https://api.mailisk.com/api/emails/3ae7depk6evl/inbox',
       headers: {
-        'X-Api-Key': '8q2VDg-rc0nuYA0XuhM4E4d1RqF9gn648MEHzWIajLA',
+        'X-Api-Key': 'Kvq74Yu_CAY6vQu0ehW4B-sSlPkhfgqv5ocHlnBmLCM',
       },
     }).then((response) => {
       // Access the response here
@@ -52,15 +52,15 @@ it('Edit Company Documents', () => {
     cy.visit('https://app.develop.cyber-pass.eu/profile')
     cy.get('.anticon-edit').eq(1).click()
 
-    cy.get('.ant-upload-drag-container').eq(0).selectFile(['connected.png','Company slide.jpg'],{action:'drag-drop', force: true, allowEmpty: true});
-    cy.get('.ant-upload-drag-container').eq(1).selectFile(['th (1).jpg','th (2).jpg','th (3).jpg','th.jpg'],{action:'drag-drop', force: true, allowEmpty: true});
+    cy.get('.ant-upload-drag-container').eq(0).attachFile(['connected.png','Company slide.jpg'],{action:'drag-n-drop', force: true, allowEmpty: true});
+    cy.get('.ant-upload-drag-container').eq(1).attachFile(['th (1).jpg','th (2).jpg','th (3).jpg','th.jpg'],{action:'drag-n-drop', force: true, allowEmpty: true});
     
 
-//     cy.get('.ant-btn-default').contains('Reset').click();
-// // Re upload
+    cy.get('.ant-btn-default').contains('Reset').click();
+// Re upload
     
-//     cy.get('.ant-upload-drag-container').eq(0).selectFile(['connected.png','Company slide.jpg','th.jpg'],{action:'drag-drop', force: true, allowEmpty: true});
-//     cy.get('.ant-upload-drag-container').eq(1).selectFile(['th (1).jpg','th (2).jpg','th (3).jpg'],{action:'drag-drop', force: true, allowEmpty: true});
+    cy.get('.ant-upload-drag-container').eq(0).attachFile(['connected.png','Company slide.jpg','th.jpg'],{action:'drag-n-drop', force: true, allowEmpty: true});
+    cy.get('.ant-upload-drag-container').eq(1).attachFile(['th (1).jpg','th (2).jpg','th (3).jpg'],{action:'drag-n-drop', force: true, allowEmpty: true});
     cy.wait(3000);
     cy.get('.ant-btn-primary').contains('Save').click();
     
@@ -86,7 +86,7 @@ it('Edit Company Documents', () => {
 //     cy.get('.ant-btn-dangerous').contains('Remove').click({force: true});
     
 //     cy.get('.ant-btn-primary').contains('Save').click({force: true});
-//   });
+  // });
   
 });
 
