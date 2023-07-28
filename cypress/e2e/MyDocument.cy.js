@@ -1,80 +1,82 @@
-
-import 'cypress-localstorage-commands';
+import 'cypress-localstorage-commands'
 
 // Sign in
 describe('saveLocalStorage', () => {
-  before(() => {
-    cy.clearLocalStorageSnapshot();
-  });
-  
-  beforeEach(() => {
-    cy.restoreLocalStorage();
-  });
+	before(() => {
+		cy.clearLocalStorageSnapshot()
+	})
 
-  afterEach(() => {
-    cy.saveLocalStorage();
-  });
+	beforeEach(() => {
+		cy.restoreLocalStorage()
+	})
 
-  it('Login', () => {
+	afterEach(() => {
+		cy.saveLocalStorage()
+	})
 
-    const email = 'anything@3ae7depk6evl.mailisk.net';
-    cy.visit('https://app.develop.cyber-pass.eu/');
-    cy.get('.ant-input').type(email);
-    cy.get('.ant-btn-primary').click();
-    
-    cy.wait(7000);
+	it('Login', () => {
+		const email = 'anything@3ae7depk6evl.mailisk.net'
+		cy.visit('https://app.develop.cyber-pass.eu/')
+		cy.get('.ant-input').type(email)
+		cy.get('.ant-btn-primary').click()
 
-    cy.request({
-      method: 'GET',
-      url: 'https://api.mailisk.com/api/emails/3ae7depk6evl/inbox',
-      headers: {
-        'X-Api-Key': 'Kvq74Yu_CAY6vQu0ehW4B-sSlPkhfgqv5ocHlnBmLCM',
-      },
-    }).then((response) => {
-      // Access the response here
-      const responseBody = response.body;
-      const text = responseBody.data[0].subject;
+		cy.wait(7000)
 
-      const regex = /is (\d+)/;
-      const match = text.match(regex);
-      const code = match ? match[1] : null;
+		cy.request({
+			method: 'GET',
+			url: 'https://api.mailisk.com/api/emails/3ae7depk6evl/inbox',
+			headers: {
+				'X-Api-Key': 'Kvq74Yu_CAY6vQu0ehW4B-sSlPkhfgqv5ocHlnBmLCM',
+			},
+		}).then((response) => {
+			// Access the response here
+			const responseBody = response.body
+			const text = responseBody.data[0].subject
 
-      cy.get('.ant-form-item-control-input-content').find('.ant-input').eq(1).type(code);
-      cy.get('.ant-btn-primary').click();
-      cy.wait(2000);
+			const regex = /is (\d+)/
+			const match = text.match(regex)
+			const code = match ? match[1] : null
 
-    });
-  });
+			cy.get('.ant-form-item-control-input-content')
+				.find('.ant-input')
+				.eq(1)
+				.type(code)
+			cy.get('.ant-btn-primary').click()
+			cy.wait(2000)
+		})
+	})
 
-  //Check Page title
-  it('Check Page title', () => {
-    cy.visit('https://app.develop.cyber-pass.eu/documents');
-    cy.get('.page-title').should('have.text','My Documents'); 
-  });
+	//Check Page title
+	it('Check Page title', () => {
+		cy.visit('https://app.develop.cyber-pass.eu/documents')
+		cy.get('.page-title').should('have.text', 'My Documents')
+	})
 
-  //  Search file
-  it('Search file', () => {
-    cy.visit('https://app.develop.cyber-pass.eu/documents');
-    cy.get('.ant-input').type('abc')
-  });
+	//  Search file
+	it('Search file', () => {
+		cy.visit('https://app.develop.cyber-pass.eu/documents')
+		cy.get('.ant-input').type('abc')
+	})
 
-    //Upload file
-  it('Upload button ', () => {
-    cy.visit('https://app.develop.cyber-pass.eu/documents');
-    cy.get('.ant-btn-primary').contains('Upload').attachFile('Company slide.jpg',{subjectType:'drag-n-drop'});
-  });
+	//Upload file
+	it('Upload button ', () => {
+		cy.visit('https://app.develop.cyber-pass.eu/documents')
+		cy.get('.ant-btn-primary')
+			.contains('Upload')
+			.attachFile('Company slide.jpg', { subjectType: 'drag-n-drop' })
+	})
 
-  it('Upload multi files ', () => {
-    cy.visit('https://app.develop.cyber-pass.eu/documents');
-    cy.get('.ant-upload-drag-container').attachFile(['th (1).jpg','th (2).jpg','th.jpg'],{subjectType:'drag-n-drop'});
-  });
+	it('Upload multi files ', () => {
+		cy.visit('https://app.develop.cyber-pass.eu/documents')
+		cy.get('.ant-upload-drag-container').attachFile(
+			['th (1).jpg', 'th (2).jpg', 'th.jpg'],
+			{ subjectType: 'drag-n-drop' },
+		)
+	})
 
-    it('Download ', () => {
-      cy.visit('https://app.develop.cyber-pass.eu/documents');
-      cy.get('.anticon-download').eq(0).click();
-      cy.get('.anticon-download').eq(1).click();
-    });
-});
-
-
-
+	it('Download ', () => {
+		cy.visit('https://app.develop.cyber-pass.eu/documents')
+		cy.get('.anticon-download').eq(0).click()
+		cy.get('.anticon-download').eq(1).click()
+	})
+})

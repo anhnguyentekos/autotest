@@ -1,46 +1,46 @@
 {
-  "name": "cypressautomation",
-  "version": "1.0.0",
-  "description": "Cypress with cucumber",
-  "main": "main.js",
-  "type": "module",
-  "cypress-cucumber-preprocessor": {
-    "nonGlobalStepDefinitions": true
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "eslint": "eslint --fix *.js",
-    "test-cucumber": "cucumber-js"
-  },
-  "author": "Steven",
-  "license": "ISC",
-  "dependencies": {
-    "cypress-cucumber-preprocessor": "^4.3.1",
-    "prettier": "^3.0.0"
-  },
-  "devDependencies": {
-    "@cypress/xpath": "^2.0.3",
-    "@testing-library/cypress": "^9.0.0",
-    "cypress": "^12.17.2",
-    "cypress-file-upload": "^5.0.8",
-    "cypress-localstorage-commands": "^2.2.3",
-    "cypress-xpath": "^2.0.1",
-    "eslint": "^8.43.0",
-    "eslint-plugin-cypress": "^2.13.3",
-    "eslint-plugin-react": "^7.32.2"
-  },
-  "eslintConfig": {
-    "extends": [
-      "plugin:cypress/recommended"
-    ]
-  },
-  "repository": {
-    "type": "git",
-    "url": "Cypress with cucumber"
-  },
-  "keywords": [
-    "Cypress",
-    "BDD",
-    "Cucumber"
-  ]
+	"name": "cypressautomation",
+	"version": "1.0.0",
+	"description": "Cypress with cucumber",
+	"main": "main.js",
+	"type": "module",
+	"cypress-cucumber-preprocessor": {
+		"nonGlobalStepDefinitions": true
+	},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"eslint": "eslint --fix *.js",
+		"test-cucumber": "cucumber-js"
+	},
+	"author": "Steven",
+	"license": "ISC",
+	"dependencies": {
+		"cypress-cucumber-preprocessor": "^4.3.1",
+		"prettier": "^3.0.0"
+	},
+	"devDependencies": {
+		"@cypress/xpath": "^2.0.3",
+		"@testing-library/cypress": "^9.0.0",
+		"cypress": "^12.17.2",
+		"cypress-file-upload": "^5.0.8",
+		"cypress-localstorage-commands": "^2.2.3",
+		"cypress-xpath": "^2.0.1",
+		"eslint": "^8.43.0",
+		"eslint-plugin-cypress": "^2.13.3",
+		"eslint-plugin-react": "^7.32.2"
+	},
+	"eslintConfig": {
+		"extends": [
+			"plugin:cypress/recommended"
+		]
+	},
+	"repository": {
+		"type": "git",
+		"url": "Cypress with cucumber"
+	},
+	"keywords": [
+		"Cypress",
+		"BDD",
+		"Cucumber"
+	]
 }
