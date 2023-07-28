@@ -7,8 +7,8 @@ module.exports = {
     },
     extends: [
         'eslint:recommended',
-        "plugin:cypress/recommended",
-        "airbnb-base",
+        'plugin:cypress/recommended',
+        'airbnb-base',
         'prettier',
     ],
     parserOptions: {
@@ -16,15 +16,15 @@ module.exports = {
         sourceType: 'module',
     },
     rules: {
-        "prettier/prettier": 'warn',
+        'prettier/prettier': 'off',
         quotes: ['error', 'single'],
         // we want to force semicolons
         semi: ['error', 'always'],
         // we use 2 spaces to indent our code
         indent: ['error', 4],
         // we want to avoid extraneous spaces
-        "no-multi-spaces": ['error'],
-        "no-unused-vars": 'off',
+        'no-multi-spaces': ['error'],
+        'no-unused-vars': 'off',
     },
     plugins: ['prettier'],
     globals: {

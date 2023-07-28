@@ -1,82 +1,82 @@
-import "cypress-localstorage-commands";
+import 'cypress-localstorage-commands';
 
 // Sign in
-describe("saveLocalStorage", () => {
-  before(() => {
-    cy.clearLocalStorageSnapshot();
-  });
-
-  beforeEach(() => {
-    cy.restoreLocalStorage();
-  });
-
-  afterEach(() => {
-    cy.saveLocalStorage();
-  });
-
-  it("Login", () => {
-    const email = "anything@3ae7depk6evl.mailisk.net";
-    cy.visit("https://app.develop.cyber-pass.eu/");
-    cy.get(".ant-input").type(email);
-    cy.get(".ant-btn-primary").click();
-
-    cy.wait(7000);
-
-    cy.request({
-      method: "GET",
-      url: "https://api.mailisk.com/api/emails/3ae7depk6evl/inbox",
-      headers: {
-        "X-Api-Key": "Kvq74Yu_CAY6vQu0ehW4B-sSlPkhfgqv5ocHlnBmLCM",
-      },
-    }).then((response) => {
-      // Access the response here
-      const responseBody = response.body;
-      const text = responseBody.data[0].subject;
-
-      const regex = /is (\d+)/;
-      const match = text.match(regex);
-      const code = match ? match[1] : null;
-
-      cy.get(".ant-form-item-control-input-content")
-        .find(".ant-input")
-        .eq(1)
-        .type(code);
-      cy.get(".ant-btn-primary").click();
-      cy.wait(2000);
+describe('saveLocalStorage', () => {
+    before(() => {
+        cy.clearLocalStorageSnapshot();
     });
-  });
 
-  //Check Page title
-  it("Check Page title", () => {
-    cy.visit("https://app.develop.cyber-pass.eu/documents");
-    cy.get(".page-title").should("have.text", "My Documents");
-  });
+    beforeEach(() => {
+        cy.restoreLocalStorage();
+    });
 
-  //  Search file
-  it("Search file", () => {
-    cy.visit("https://app.develop.cyber-pass.eu/documents");
-    cy.get(".ant-input").type("abc");
-  });
+    afterEach(() => {
+        cy.saveLocalStorage();
+    });
 
-  //Upload file
-  it("Upload button ", () => {
-    cy.visit("https://app.develop.cyber-pass.eu/documents");
-    cy.get(".ant-btn-primary")
-      .contains("Upload")
-      .attachFile("Company slide.jpg", { subjectType: "drag-n-drop" });
-  });
+    it('Login', () => {
+        const email = 'anything@3ae7depk6evl.mailisk.net';
+        cy.visit('https://app.develop.cyber-pass.eu/');
+        cy.get('.ant-input').type(email);
+        cy.get('.ant-btn-primary').click();
 
-  it("Upload multi files ", () => {
-    cy.visit("https://app.develop.cyber-pass.eu/documents");
-    cy.get(".ant-upload-drag-container").attachFile(
-      ["th (1).jpg", "th (2).jpg", "th.jpg"],
-      { subjectType: "drag-n-drop" },
-    );
-  });
+        cy.wait(7000);
 
-  it("Download ", () => {
-    cy.visit("https://app.develop.cyber-pass.eu/documents");
-    cy.get(".anticon-download").eq(0).click();
-    cy.get(".anticon-download").eq(1).click();
-  });
+        cy.request({
+            method: 'GET',
+            url: 'https://api.mailisk.com/api/emails/3ae7depk6evl/inbox',
+            headers: {
+                'X-Api-Key': 'Kvq74Yu_CAY6vQu0ehW4B-sSlPkhfgqv5ocHlnBmLCM',
+            },
+        }).then((response) => {
+            // Access the response here
+            const responseBody = response.body;
+            const text = responseBody.data[0].subject;
+
+            const regex = /is (\d+)/;
+            const match = text.match(regex);
+            const code = match ? match[1] : null;
+
+            cy.get('.ant-form-item-control-input-content')
+                .find('.ant-input')
+                .eq(1)
+                .type(code);
+            cy.get('.ant-btn-primary').click();
+            cy.wait(2000);
+        });
+    });
+
+    // Check Page title
+    it('Check Page title', () => {
+        cy.visit('https://app.develop.cyber-pass.eu/documents');
+        cy.get('.page-title').should('have.text', 'My Documents');
+    });
+
+    //  Search file
+    it('Search file', () => {
+        cy.visit('https://app.develop.cyber-pass.eu/documents');
+        cy.get('.ant-input').type('abc');
+    });
+
+    // Upload file
+    it('Upload button ', () => {
+        cy.visit('https://app.develop.cyber-pass.eu/documents');
+        cy.get('.ant-btn-primary')
+            .contains('Upload')
+            .attachFile('Company slide.jpg', { subjectType: 'drag-n-drop' });
+    });
+
+    it('Upload multi files ', () => {
+        cy.visit('https://app.develop.cyber-pass.eu/documents');
+        cy.get('.ant-upload-drag-container').attachFile(
+            ['th (1).jpg', 'th (2).jpg', 'th.jpg'],
+            { subjectType: 'drag-n-drop' },
+        );
+    });
+
+    it('Download ', () => {
+        cy.visit('https://app.develop.cyber-pass.eu/documents');
+        cy.get('.anticon-download').eq(0).click();
+        cy.get('.anticon-download').eq(1).click();
+    });
 });
