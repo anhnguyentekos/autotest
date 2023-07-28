@@ -23,7 +23,7 @@ describe('saveLocalStorage', () => {
         cy.wait(7000);
 
         cy.request({
-            method: 'GET',
+			method: 'GET',
             url: 'https://api.mailisk.com/api/emails/3ae7depk6evl/inbox',
             headers: {
                 'X-Api-Key': 'Kvq74Yu_CAY6vQu0ehW4B-sSlPkhfgqv5ocHlnBmLCM',

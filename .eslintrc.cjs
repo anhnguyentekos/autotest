@@ -1,29 +1,33 @@
 module.exports = {
-    'env': {
-        'browser': true,
-        'es2021': true,
-        'node': true,
-        'jest': true
+    env: {
+        browser: true,
+        es2021: true,
+        node: true,
+        jest: true,
     },
-    'extends': [
+    extends: [
         'eslint:recommended',
-        'plugin:cypress/recommended'
+        "plugin:cypress/recommended",
+        "airbnb-base",
+        'prettier',
     ],
-    'parserOptions': {
-        'ecmaVersion': 12,
-        'sourceType': 'module'
+    parserOptions: {
+        ecmaVersion: 12,
+        sourceType: 'module',
     },
-    'rules': {
-        'quotes': ['error', 'single'],
+    rules: {
+        "prettier/prettier": 'warn',
+        quotes: ['error', 'single'],
         // we want to force semicolons
-        'semi': ['error', 'always'],
+        semi: ['error', 'always'],
         // we use 2 spaces to indent our code
-        'indent': ['error', 4],
+        indent: ['error', 4],
         // we want to avoid extraneous spaces
-        'no-multi-spaces': ['error'],
-        'no-unused-vars': 'off'
+        "no-multi-spaces": ['error'],
+        "no-unused-vars": 'off',
     },
-    'globals': {
-        'cy': true
-    }
+    plugins: ['prettier'],
+    globals: {
+        cy: true,
+    },
 };

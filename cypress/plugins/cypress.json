@@ -1,4 +1,4 @@
 {
-	"testFiles": "**/*.feature",
-	"numTestsKeptInMemory": 0
+  "testFiles": "**/*.feature",
+  "numTestsKeptInMemory": 0
 }

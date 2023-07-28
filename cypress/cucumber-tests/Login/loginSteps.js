@@ -1,3 +1,3 @@
-import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, When, Then } from "cypress-cucumber-preprocessor/steps";
 
-Given('I open login page', () => {})
+Given("I open login page", () => {});
