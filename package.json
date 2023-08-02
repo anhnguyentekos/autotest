@@ -8,23 +8,24 @@
     "nonGlobalStepDefinitions": true
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "open": "cypress open",
+    "test": "cypress run -- browser chrome -- headed",
     "eslint": "eslint --fix *.js",
     "test-cucumber": "cucumber-js"
   },
   "author": "Steven",
   "license": "ISC",
   "dependencies": {
+    "cypress": "^12.17.2",
     "cypress-cucumber-preprocessor": "^4.3.1",
+    "cypress-localstorage-commands": "^2.2.3",
     "eslint-config-airbnb": "^19.0.4",
-    "prettier": "^3.0.0",
-    "cypress": "^12.17.2"
+    "prettier": "^3.0.0"
   },
   "devDependencies": {
     "@cypress/xpath": "^2.0.3",
     "@testing-library/cypress": "^9.0.0",
     "cypress-file-upload": "^5.0.8",
-    "cypress-localstorage-commands": "^2.2.3",
     "cypress-xpath": "^2.0.1",
     "eslint": "^8.43.0",
     "eslint-config-prettier": "^8.9.0",

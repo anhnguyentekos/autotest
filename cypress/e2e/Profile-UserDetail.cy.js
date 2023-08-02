@@ -16,8 +16,8 @@ describe('saveLocalStorage', () => {
 
     it('Login', () => {
         const email = 'anything@3ae7depk6evl.mailisk.net';
-        cy.visit('https://app.develop.cyber-pass.eu/');
-        cy.get('.ant-input').type(email);
+        cy.visit('https://app.develop.cyber-pass.eu/login');
+        cy.get('#email').type(email);
         cy.get('.ant-btn-primary').click();
 
         cy.wait(7000);
@@ -38,11 +38,10 @@ describe('saveLocalStorage', () => {
             const code = match ? match[1] : null;
 
             cy.get('.ant-form-item-control-input-content')
-                .find('.ant-input')
-                .eq(1)
+                .find('#verificationPin')
                 .type(code);
             cy.get('.ant-btn-primary').click();
-            cy.wait(2000);
+            cy.reload();
         });
     });
 
