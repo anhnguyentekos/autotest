@@ -16,7 +16,7 @@ describe('saveLocalStorage', () => {
 
     it('Login', () => {
         const email = 'anything@3ae7depk6evl.mailisk.net';
-        cy.visit('https://app.develop.cyber-pass.eu/login');
+        cy.visit('/login');
         cy.get('#email').type(email);
         cy.get('.ant-btn-primary').click();
 
@@ -25,6 +25,7 @@ describe('saveLocalStorage', () => {
         cy.request({
             method: 'GET',
             url: 'https://api.mailisk.com/api/emails/3ae7depk6evl/inbox',
+            
             headers: {
                 'X-Api-Key': 'Kvq74Yu_CAY6vQu0ehW4B-sSlPkhfgqv5ocHlnBmLCM',
             },
@@ -41,15 +42,15 @@ describe('saveLocalStorage', () => {
                 .find('#verificationPin')
                 .type(code);
             cy.get('.ant-btn-primary').click();
-            cy.reload();
+            
         });
     });
 
     // Edit User Detail
     it(' Edit User Detail', () => {
-        cy.visit('https://app.develop.cyber-pass.eu/profile');
+        cy.visit('/profile');
         cy.get('.anticon-edit').eq(0).click();
-        cy.wait(3000);
+        
         cy.get('.ant-upload-drag-container').attachFile('Company logo.jpg', {
             subjectType: 'drag-n-drop',
         });
@@ -67,7 +68,7 @@ describe('saveLocalStorage', () => {
     it('Check max-range User Detail', () => {
         cy.visit('https://app.develop.cyber-pass.eu/profile');
         cy.get('.anticon-edit').eq(0).click();
-        cy.wait(2000);
+        
         cy.get('.ant-upload-drag-container').attachFile('company profile.jpg', {
             subjectType: 'drag-n-drop',
         });
@@ -95,7 +96,7 @@ describe('saveLocalStorage', () => {
     it('Clear User Detail', () => {
         cy.visit('https://app.develop.cyber-pass.eu/profile');
         cy.get('.anticon-edit').eq(0).click();
-        cy.wait(2000);
+        
         cy.get('.anticon-delete').eq(0).click();
         cy.get('.ant-btn-dangerous').contains('Remove').click({ force: true });
         cy.get('#fullName').clear();

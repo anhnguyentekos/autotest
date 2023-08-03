@@ -17,7 +17,7 @@ describe('saveLocalStorage', () => {
 
     it('Login', () => {
         const email = 'anything@3ae7depk6evl.mailisk.net';
-        cy.visit('https://app.develop.cyber-pass.eu/login');
+        cy.visit('/login');
         cy.get('#email').type(email);
         cy.get('.ant-btn-primary').click();
 
@@ -43,30 +43,28 @@ describe('saveLocalStorage', () => {
                 .find('#verificationPin')
                 .type(code);
             cy.get('.ant-btn-primary').click();
-            cy.wait(3000);
-            
-            
+            // cy.wait(3000);
         });
     });
 
     // // Dashboard
     // // Check text
     // it('Check text', () => {
-    //     cy.visit('https://app.develop.cyber-pass.eu/dashboard');
+    //     cy.visit('/dashboard');
     //     cy.get('.neo-site-layout-top-bar-title').should('have.text', 'Dashboard');
     //     cy.get('.ant-card-head-title')
     //         .eq(0)
     //         .should('have.text', 'Welcome');
-    //     // cy.get('.welcome-section-container').should(
-    //     //     'contain',
-    //     //     '🎉 Congrats! You\'re now inside the platform!'+
-    //     //     'We\'re thrilled to welcome you to our beta testing environment, where we can work together to develop workflows tailored to your unique processes.'+
-    //     //     '🧐 What can you look forward to on this platform?'+
-    //     //     'Adding new products with ease 🆕'+
-    //     //     'Evaluating your products\' compliance using the ETSI Standard 🔍'+
-    //     //     'Creating and uncovering new opportunities to buy and/or sell products 🛍️'+
-    //     //     '📝 We\'re eager to hear your initial thoughts on your first experience!',
-    //     // );
+    // cy.get('.welcome-section-container').should(
+    //     'contain',
+    //     '🎉 Congrats! You\'re now inside the platform!'+
+    //     'We\'re thrilled to welcome you to our beta testing environment, where we can work together to develop workflows tailored to your unique processes.'+
+    //     '🧐 What can you look forward to on this platform?'+
+    //     'Adding new products with ease 🆕'+
+    //     'Evaluating your products\' compliance using the ETSI Standard 🔍'+
+    //     'Creating and uncovering new opportunities to buy and/or sell products 🛍️'+
+    //     '📝 We\'re eager to hear your initial thoughts on your first experience!',
+    // );
 
     //     cy.get('.ant-card-head-title')
     //         .eq(1)
@@ -111,66 +109,66 @@ describe('saveLocalStorage', () => {
 
     // Click on Go to profile button
     it('Click on Go to profile button ', () => {
-        cy.visit('https://app.develop.cyber-pass.eu/dashboard');
+        cy.visit('/dashboard');
         cy.get('.ant-card-extra').contains('Go To Profile').click();
         cy.location('pathname').should('eq', '/profile');
-        // cy.url().should('eq', 'https://app.develop.cyber-pass.eu/profile');
+        // cy.url().should('eq', '/profile');
     });
 
-    // Click on Launch Products button
-    it('Click on Launch Products button ', () => {
-        cy.visit('https://app.develop.cyber-pass.eu/dashboard');
-        cy.get('.ant-btn-primary').contains('Launch Products').click();
-        cy.location('pathname').should('eq', '/products/list'); // dang loi ko nhay toi trang product
+    // // Click on Launch Products button
+    // it('Click on Launch Products button ', () => {
+    //     cy.visit('/dashboard');
+    //     cy.get('.ant-btn-primary').contains('Launch Products').click();
+    //     cy.location('pathname').should('eq', '/products/list'); // dang loi ko nhay toi trang product
 
-        // cy.url().should('eq', 'https://app.develop.cyber-pass.eu/products/list');
-    });
-
-    // // Click on Launch Opportunities button
-    // it('Click on Launch Opportunities button ', () => {
-    //     cy.visit('https://app.develop.cyber-pass.eu/');
-    //     cy.get('.ant-btn-primary').contains('Launch Opportunities').click();
-    //     cy.url().should('eq', 'https://app.develop.cyber-pass.eu/opportunities');
-    // });
-
-    // // Click on Launch Knowledge-Base button
-    // it('Click on Launch Knowledge-Base button ', () => {
-    //     cy.visit('https://app.develop.cyber-pass.eu/');
-    //     cy.get('.ant-btn-primary').contains('Launch Knowledge-Base').click();
-    //     cy.url().should(
-    //         'eq',
-    //         'https://app.develop.cyber-pass.eu/dashboard/coming-soon',
-    //     );
-    // });
-
-    // // Click on Created Opportunities button
-    // it('Click on Created Opportunities button ', () => {
-    //     cy.visit('https://app.develop.cyber-pass.eu/');
-    //     cy.get('.stats-section-title').contains('Created Opportunities').click();
-    //     cy.url().should('eq', 'https://app.develop.cyber-pass.eu/opportunities');
-    // });
-
-    // // Click on Your Products button
-    // it('Click on Your Products button ', () => {
-    //     cy.visit('https://app.develop.cyber-pass.eu/');
-    //     cy.get('.stats-section-title').contains('Your Products').click();
-    //     cy.url().should('eq', 'https://app.develop.cyber-pass.eu/products/list');
-    // });
-
-    // // Click on Your Certified Products button
-    // it('Click on Your Certified Products button ', () => {
-    //     cy.visit('https://app.develop.cyber-pass.eu/');
-    //     cy.get('.stats-section-title').contains('Your Certified Products').click();
-    //     cy.url().should(
-    //         'eq',
-    //         'https://app.develop.cyber-pass.eu/certified-products/list',
-    //     );
-    // });
-    // // Click on Received Invitations button
-    // it('Click on Received Invitations button ', () => {
-    //     cy.visit('https://app.develop.cyber-pass.eu/');
-    //     cy.wait(2000);
-    //     cy.get('.stats-section-title').contains('Received Invitations').click();
-    //     cy.url().should('eq', 'https://app.develop.cyber-pass.eu/opportunities');
-    // });
+    // cy.url().should('eq', '/products/list');
 });
+
+// // Click on Launch Opportunities button
+// it('Click on Launch Opportunities button ', () => {
+//     cy.visit('/dashboard');
+//     cy.get('.ant-btn-primary').contains('Launch Opportunities').click();
+//     cy.url().should('eq', '/opportunities');
+// });
+
+// // Click on Launch Knowledge-Base button
+// it('Click on Launch Knowledge-Base button ', () => {
+//     cy.visit('/dashboard');
+//     cy.get('.ant-btn-primary').contains('Launch Knowledge-Base').click();
+//     cy.url().should(
+//         'eq',
+//         '/dashboard/coming-soon',
+//     );
+// });
+
+// // Click on Created Opportunities button
+// it('Click on Created Opportunities button ', () => {
+//     cy.visit('/dashboard');
+//     cy.get('.stats-section-title').contains('Created Opportunities').click();
+//     cy.url().should('eq', '/opportunities');
+// });
+
+// // Click on Your Products button
+// it('Click on Your Products button ', () => {
+//     cy.visit('/dashboard');
+//     cy.get('.stats-section-title').contains('Your Products').click();
+//     cy.url().should('eq', '/products/list');
+// });
+
+// // Click on Your Certified Products button
+// it('Click on Your Certified Products button ', () => {
+//     cy.visit('/dashboard');
+//     cy.get('.stats-section-title').contains('Your Certified Products').click();
+//     cy.url().should(
+//         'eq',
+//         '/certified-products/list',
+//     );
+// });
+// // Click on Received Invitations button
+// it('Click on Received Invitations button ', () => {
+//     cy.visit('/dashboard');
+//     cy.wait(2000);
+//     cy.get('.stats-section-title').contains('Received Invitations').click();
+//     cy.url().should('eq', '/opportunities');
+// });
+// });
