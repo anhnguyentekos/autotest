@@ -19,6 +19,7 @@
     "cypress": "^12.17.2",
     "cypress-cucumber-preprocessor": "^4.3.1",
     "cypress-localstorage-commands": "^2.2.3",
+    "cypress-plugin-snapshots": "^1.4.4",
     "eslint-config-airbnb": "^19.0.4",
     "prettier": "^3.0.0"
   },
