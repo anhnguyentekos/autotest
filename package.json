@@ -16,7 +16,6 @@
   "author": "Steven",
   "license": "ISC",
   "dependencies": {
-    "cypress": "^12.17.2",
     "cypress-cucumber-preprocessor": "^4.3.1",
     "cypress-localstorage-commands": "^2.2.3",
     "cypress-plugin-snapshots": "^1.4.4",
@@ -26,6 +25,7 @@
   "devDependencies": {
     "@cypress/xpath": "^2.0.3",
     "@testing-library/cypress": "^9.0.0",
+    "cypress": "^12.17.3",
     "cypress-file-upload": "^5.0.8",
     "cypress-xpath": "^2.0.1",
     "eslint": "^8.43.0",

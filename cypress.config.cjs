@@ -3,8 +3,8 @@ const { defineConfig } = require('cypress');
 const localstorage = require('cypress-localstorage-commands/plugin');
 
 module.exports = defineConfig({
-    numTestsKeptInMemory: 0,
-    // defaultCommandTimeout: 10000,
+    numTestsKeptInMemory: 50,
+    defaultCommandTimeout: 10000,
     setupNodeEvents(on, config) {
         localstorage(on, config);
         return config;
