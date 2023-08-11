@@ -103,7 +103,7 @@ describe('saveLocalStorage', () => {
         cy.visit('/dashboard');
         cy.get('.ant-card-extra').contains('Go To Profile').click();
         cy.location('pathname').should('eq', '/profile');
-        // cy.url().should('eq', '/profile');
+       
     });
 
     // Click on Launch Products button
@@ -118,7 +118,7 @@ describe('saveLocalStorage', () => {
     it('Click on Launch Conpliance button ', () => {
         cy.visit('/dashboard');
         cy.get('.ant-btn-primary').contains('Launch Conpliance').click();
-        cy.location('pathname').should('eq', '/products'); 
+        cy.location('pathname').should('eq', '/certifications'); 
     });
 
 
