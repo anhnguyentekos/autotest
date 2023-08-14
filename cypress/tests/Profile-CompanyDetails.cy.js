@@ -7,50 +7,20 @@ describe('saveLocalStorage', () => {
     });
 
     beforeEach(() => {
-        cy.restoreLocalStorage();
+        // cy.restoreLocalStorage();
+        cy.login('email', 'code');
     });
 
     afterEach(() => {
-        cy.saveLocalStorage();
+        // cy.saveLocalStorage();
     });
 
-    it('Login', () => {
-        const email = 'anything@3ae7depk6evl.mailisk.net';
-        cy.visit('https://app.develop.cyber-pass.eu/');
-        cy.get('#email').type(email);
-        cy.get('.ant-btn-primary').click();
-
-        cy.wait(7000);
-
-        cy.request({
-            method: 'GET',
-            url: 'https://api.mailisk.com/api/emails/3ae7depk6evl/inbox',
-            headers: {
-                'X-Api-Key': 'Kvq74Yu_CAY6vQu0ehW4B-sSlPkhfgqv5ocHlnBmLCM',
-            },
-        }).then((response) => {
-            // Access the response here
-            const responseBody = response.body;
-            const text = responseBody.data[0].subject;
-
-            const regex = /is (\d+)/;
-            const match = text.match(regex);
-            const code = match ? match[1] : null;
-
-            cy.get('.ant-form-item-control-input-content')
-                .find('#verificationPin')
-                .type(code);
-            cy.get('.ant-btn-primary').click();
-            cy.wait(2000);
-            cy.reload();
-        });
-    });
-
+    
     // Edit Company Detail
     it('Edit Company Detail', () => {
         cy.visit('https://app.develop.cyber-pass.eu/profile');
         cy.get('.anticon-edit').eq(2).click();
-        cy.wait(2000);
+        
         cy.get('.ant-upload-drag-container').attachFile('Company slide.jpg', {
             subjectType: 'drag-n-drop',
         });
@@ -99,7 +69,7 @@ describe('saveLocalStorage', () => {
     it('Clear Company Detail', () => {
         cy.visit('https://app.develop.cyber-pass.eu/profile');
         cy.get('.anticon-edit').eq(2).click();
-        cy.wait(2000);
+       
         // cy.get('.anticon-delete').eq(0).click();
         // cy.get('.ant-btn-dangerous').contains('Remove').click();
         cy.get('#name').clear();

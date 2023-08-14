@@ -1,13 +1,9 @@
-import '@testing-library/cypress/add-commands';
-import 'cypress-file-upload';
+import 'cypress-localstorage-commands';
 
-Cypress.Commands.add('login',() => 
-{
-    cy.session([], () =>
-    {
-        const email = 'anything@3ae7depk6evl.mailisk.net';
+    it('Login', () => {
+        const email1 = 'anything@3ae7depk6evl.mailisk.net';
         cy.visit('/login');
-        cy.get('#email').type(email);
+        cy.get('#email').type(email1);
         cy.get('[type=submit]').click();
         cy.get('#verificationPin').should('be.visible');
     
@@ -21,17 +17,10 @@ Cypress.Commands.add('login',() =>
             const {body} = response;
             const text = body.data[0].subject;
             const match = text.match( /is (\d+)/);
-            const code = match ? match[1] : null;
+            const code1 = match ? match[1] : null;
     
-            cy.get('#verificationPin').type(code);
+            cy.get('#verificationPin').type(code1);
             cy.get('[type=submit]').click();
-            cy.wait(2000);
-
         });
-    },
-    {
-        cacheAcrossSpecs: true
-    }
-    );
-    
+    });
 });
