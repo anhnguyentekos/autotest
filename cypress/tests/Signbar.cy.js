@@ -41,7 +41,7 @@ describe('Sidebar', () => {
     it('Click on Dashboard Panel', () => {
         // cy.visit('/dashboard');
         cy.get('.anticon-dashboard').click();
-        
+        cy.location('pathname').should('eq', '/dashboard');
     });
 
     // Click on My Product Panel
@@ -106,5 +106,6 @@ describe('Sidebar', () => {
         // cy.visit('/dashboard');
         cy.get('.anticon-export').click();
         cy.go('back');
+        cy.location('pathname').should('eq', '/login');
     });
 });

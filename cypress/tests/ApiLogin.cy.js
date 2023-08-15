@@ -23,4 +23,4 @@ import 'cypress-localstorage-commands';
             cy.get('[type=submit]').click();
         });
     });
-});
+
