@@ -10,14 +10,8 @@ describe('saveLocalStorage', () => {
     beforeEach(() => {
         cy.login('email', 'code');
         cy.visit('/dashboard');
-        // cy.restoreLocalStorage();
         
     });
-
-    afterEach(() => {
-        // cy.saveLocalStorage();
-    });
-
     
     // Dashboard
     // Check text
@@ -87,29 +81,29 @@ describe('saveLocalStorage', () => {
        
     });
 
-    // Click on Launch Products button
-    it('Click on Launch Products button ', () => {
-        cy.get('.ant-btn-primary').contains('Launch Products').click();
+    // Click on  Products button
+    it('Click on Products button ', () => {
+        cy.get('.ant-btn-primary').contains('Products').click();
         cy.get('.ant-tag-orange').invoke('text').should('eq', '🔒 Created Products');
         cy.location('pathname').should('eq', '/products'); 
     });
 
-    // Click on Launch Conpliance button
-    it('Click on Launch Conpliance button ', () => {
-        cy.get('.ant-btn-primary').contains('Launch Compliance').click();
+    // Click on  Evaluation button
+    it('Click on  Evaluation button ', () => {
+        cy.get('.ant-btn-primary').contains('Evaluation').click();
         cy.location('pathname').should('eq', '/certifications'); 
     });
 
-    // Click on Launch Opportunities button
-    it('Click on Launch Opportunities button ', () => {
-        cy.get('.ant-btn-primary').contains('Launch Opportunities').click();
+    // Click on  Opportunities button
+    it('Click on  Opportunities button ', () => {
+        cy.get('.ant-btn-primary').contains('Opportunities').click();
         cy.location('pathname').should('eq', '/opportunities'); 
       
     });
 
-    // Click on Launch Knowledge-Base button
-    it('Click on Launch Knowledge-Base button ', () => {
-        cy.get('.ant-btn-primary').contains('Launch Knowledge-Base').click();
+    // Click on  Knowledge-Base button
+    it('Click on  Knowledge-Base button ', () => {
+        cy.get('.ant-btn-primary').contains('Knowledge-Base').click();
         cy.location('pathname').should('eq', '/knowledge-base'); 
       
     });

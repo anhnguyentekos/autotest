@@ -14,7 +14,7 @@ module.exports = defineConfig({
     e2e: {
         setupNodeEvents(on, config) {
         },
-        specPattern: './cypress/tests/**.*',
+        specPattern: './cypress/tests dev/**.*',
         baseUrl: 'https://app.develop.cyber-pass.eu',
     },
 });
