@@ -1,52 +1,20 @@
 import 'cypress-localstorage-commands';
 
-// Sign in
+    // Sign in
 describe('saveLocalStorage', () => {
     before(() => {
         cy.clearLocalStorageSnapshot();
+        
     });
 
     beforeEach(() => {
-        cy.restoreLocalStorage();
+        cy.login('email', 'code');
+        cy.visit('/dashboard');
+        
     });
+    
 
-    afterEach(() => {
-        cy.saveLocalStorage();
-    });
 
-    it('Login', () => {
-        const email = 'anything@3ae7depk6evl.mailisk.net';
-        cy.visit('https://app.develop.cyber-pass.eu/');
-        cy.get('.ant-input').type(email);
-        cy.get('.ant-btn-primary').click();
-
-        cy.wait(7000);
-
-        cy.request({
-            method: 'GET',
-            url: 'https://api.mailisk.com/api/emails/3ae7depk6evl/inbox',
-            headers: {
-                'X-Api-Key': 'Kvq74Yu_CAY6vQu0ehW4B-sSlPkhfgqv5ocHlnBmLCM',
-            },
-        }).then((response) => {
-            // Access the response here
-            const responseBody = response.body;
-            const text = responseBody.data[0].subject;
-
-            const regex = /is (\d+)/;
-            const match = text.match(regex);
-            const code = match ? match[1] : null;
-
-            cy.get('.ant-form-item-control-input-content')
-                .find('.ant-input')
-                .eq(1)
-                .type(code);
-            cy.get('.ant-btn-primary').click();
-            cy.wait(2000);
-        });
-    });
-
-    // Dashboard
     // Add new product
     it('Click on Add Products button', () => {
         cy.visit('https://app.develop.cyber-pass.eu/');

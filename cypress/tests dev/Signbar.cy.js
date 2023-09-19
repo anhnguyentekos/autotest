@@ -11,8 +11,8 @@ describe('Sidebar', () => {
         cy.visit('/dashboard');
     });
 
-    // Click on Quick add Panel-> Product
-    it('Click on Quick add Panel-> Product', () => {
+    // Click on Shortcuts Panel-> Product
+    it('Click on Shortcuts Panel-> Product', () => {
         cy.get('.ant-menu-submenu-vertical').find('.ant-btn-lg').click();
         cy.get('.ant-menu-item-group-list')
             .find('.ant-menu-title-content')
@@ -20,8 +20,8 @@ describe('Sidebar', () => {
             .click();
     });
 
-    // Click on Quick add Panel-> Opportunity
-    it('Click on Quick add Panel-> Opportunity', () => {
+    // Click on Shortcuts Panel-> Opportunity
+    it('Click on Shortcuts Panel-> Opportunity', () => {
         
         cy.get('.ant-menu-submenu-vertical').find('.ant-btn-lg').click();
         cy.get('.ant-menu-item-group-list')
@@ -42,10 +42,11 @@ describe('Sidebar', () => {
         
     });
 
-    // // Click on Certified Products Panel
-    // it('Click on Certified Products Panel', () => {
-    //     cy.get('.anticon-trophy').click();
-    // });
+    // Click on Product Evaluation Panel
+    it('Click on Product Evaluation Panel', () => {
+        cy.get('.anticon-trophy ').click();
+        
+    });
 
     // Click on Opportunities Panel
     it('Click on Opportunities Panel', () => {
@@ -53,8 +54,8 @@ describe('Sidebar', () => {
        
     });
 
-    // Click on My Documents Panel
-    it('Click on My Documents Panel', () => {
+    // Click on Drive Panel
+    it('Click on Drive Panel', () => {
         cy.get('.anticon-file').click();
         
     });
