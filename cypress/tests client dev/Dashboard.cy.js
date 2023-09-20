@@ -25,7 +25,6 @@ describe('saveLocalStorage', () => {
 
     // Certificate Lookup
     it('Certificate Lookup ', () => {
-        
         cy.get('#serialNumber').type('EA12026124UO7AM').type('{enter}');
        
     });

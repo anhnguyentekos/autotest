@@ -38,8 +38,9 @@ describe('Sidebar', () => {
 
     // Click on Products Panel
     it('Click on Products Panel', () => {
-        cy.get('.anticon-mobile').click();
-        
+        cy.get('.anticon-mobile').eq(0).click();   
+        cy.location('pathname').should('eq', '/products');
+   
     });
 
     // Click on Product Evaluation Panel
@@ -51,7 +52,8 @@ describe('Sidebar', () => {
     // Click on Opportunities Panel
     it('Click on Opportunities Panel', () => {
         cy.get('.anticon-star').click();
-       
+        cy.location('pathname').should('eq', '/opportunities');
+
     });
 
     // Click on Drive Panel
@@ -62,8 +64,9 @@ describe('Sidebar', () => {
 
     // Click on Knowledge Base Panel
     it('Click on Knowledge Base Panel', () => {
-        cy.get('.anticon-book').click({ force: true });
-        
+        cy.get('.anticon-book').eq(0).click();
+        cy.location('pathname').should('eq', '/knowledge-base');
+
     });
 
     // Click on Profile
@@ -88,7 +91,7 @@ describe('Sidebar', () => {
     });
     // Log out
     it('Check Log out and keep remain in log out stage', () => {
-        cy.get('.anticon-poweroff').click();
+        cy.get('.anticon-poweroff').dblclick();
         cy.go('back');
         cy.location('pathname').should('eq', '/login');
     });

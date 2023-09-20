@@ -1,6 +1,6 @@
 import 'cypress-localstorage-commands';
 
-    // Sign in
+// Sign in
 describe('saveLocalStorage', () => {
     before(() => {
         cy.clearLocalStorageSnapshot();
@@ -8,7 +8,7 @@ describe('saveLocalStorage', () => {
     });
 
     beforeEach(() => {
-        cy.login('email', 'code');
+        cy.loginLab('email', 'code');
         cy.visit('/dashboard');
         
     });
